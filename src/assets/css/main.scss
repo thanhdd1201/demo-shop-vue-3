@@ -1,0 +1,113 @@
+$distances: (
+    auto: "auto",
+    5: 5px,
+    8: 8px,
+    12:12px
+);
+$directions: (
+    "t": top,
+    "b": bottom,
+    "l": left,
+    "r": right
+);
+
+@each $name,
+$direction in $directions {
+
+    @each $value,
+    $distance in $distances {
+        .m#{$name}-#{$value} {
+            margin-#{$direction}: $distance;
+        }
+
+        .p#{$name}-#{$value} {
+            padding-#{$direction}: $distance;
+        }
+    }
+}
+
+@each $value,
+$distance in $distances {
+    .mx-#{$value} {
+        margin-top: $distance;
+        margin-bottom: $distance;
+    }
+
+    .my-#{$value} {
+        margin-left: $distance;
+        margin-right: $distance;
+    }
+
+    .px-#{$value} {
+        padding-top: $distance;
+        padding-bottom: $distance;
+    }
+
+    .py-#{$value} {
+        padding-left: $distance;
+        padding-right: $distance;
+    }
+
+    .p-#{$value} {
+        padding: $distance;
+    }
+
+    .m-#{$value} {
+        margin: $distance;
+    }
+}
+
+$displays: block, flex, grid;
+
+@each $display in $displays {
+    .d-#{$display} {
+        display: $display;
+    }
+}
+
+
+// FLEX
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.col-xs-2 {
+    flex-basis: 20%;
+    max-width: 20%
+}
+
+.flex-auto {
+    flex: 0 0 auto;
+}
+
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-6,
+.col-xs-8 {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+}
+
+// END FLEX
+
+// GRID
+.grid-template-column-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-gap-5 {
+    grid-gap: 5px;
+}
+
+// END GRID
+
